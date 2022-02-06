@@ -1,0 +1,104 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" height="100%" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="ashwini.controller.Main">
+	<Page title="Main View">
+		<Panel expandable="true" expanded="false"
+			headerText="Add New Vendor" width="auto"
+			class="sapUiResponsiveMargin">
+			<f:SimpleForm id="SimpleFormChange354" editable="true"
+				layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3"
+				labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+				emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+				columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<Label text="Company Name" />
+					<Input id="name" value="{/postPayload/companyName}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3" />
+						</layoutData>
+					</Input>
+					<Label text="Name" />
+					<Input value="{/postPayload/firstName}">
+					</Input>
+					<Input value="{/postPayload/lastName}">
+						<layoutData>
+							<l:GridData span="XL1 L2 M2 S4" />
+						</layoutData>
+					</Input>
+					<Label text="Email" />
+					<Input value="{/postPayload/email}">
+						<layoutData>
+							<l:GridData span="XL1 L2 M2 S4" />
+						</layoutData>
+					</Input>
+					<Label text="Website" />
+					<Input value="{/postPayload/website}" />
+					<Label text="GST No." />
+					<Input value="{/postPayload/gstNo}" />
+					<Button text="Save" press="onSave"></Button>
+				</f:content>
+			</f:SimpleForm>
+		</Panel>
+		<t:Table id="idTable" class="sapUiResponsiveMargin">
+			<t:extension>
+				<OverflowToolbar style="Clear">
+					<ToolbarSpacer />
+					<Button text="Load Data" press="onPress"></Button>
+					<Button text="Delete Data" press="onDelete"></Button>
+				</OverflowToolbar>
+			</t:extension>
+			<t:columns>
+				<t:Column>
+					<t:label>
+						<Text text="Company Name"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{companyName}"></Text>
+					</t:template>
+				</t:Column>
+				<t:Column>
+					<t:label>
+						<Text text="Name"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{firstName} {lastName}"></Text>
+					</t:template>
+				</t:Column>
+				<t:Column>
+					<t:label>
+						<Text text="Email"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{email}"></Text>
+					</t:template>
+				</t:Column>
+				<t:Column>
+					<t:label>
+						<Text text="GST No"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{gstNo}"></Text>
+					</t:template>
+				</t:Column>
+				<t:Column>
+					<t:label>
+						<Text text="Website"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{website}"></Text>
+					</t:template>
+				</t:Column>
+				<t:Column>
+					<t:label>
+						<Text text="Status"></Text>
+					</t:label>
+					<t:template>
+						<Text text="{= ${status} === 'A'? 'Active' : 'Inactive' }"></Text>
+					</t:template>
+				</t:Column>
+			</t:columns>
+		</t:Table>
+	</Page>
+</mvc:View>

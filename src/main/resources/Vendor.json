@@ -1,0 +1,42 @@
+[
+{
+"id": 1,
+"companyName": "IBM",
+"firstName": "Amit",
+"lastName": "Meena",
+"website": "www.ashwinimeena.com",
+"email": "contactashwinimeena.com",
+"status": "A",
+"gstNo": "GST123"
+},
+{
+"id": 2,
+"companyName": "SAP",
+"firstName": "Ashwini",
+"lastName": "Meena",
+"website": "www.ashwinimeena.com",
+"email": "contactashwinimeena.com",
+"status": "A",
+"gstNo": "GST789"
+},
+{
+"id": 3,
+"companyName": "SAP",
+"firstName": "Maya",
+"lastName": "Meena",
+"website": "www.mayameena.com",
+"email": "contactmayameena.com",
+"status": "A",
+"gstNo": "GST123"
+},
+{
+"id": 4,
+"companyName": "Birlasoft",
+"firstName": "Gopal",
+"lastName": "Meena",
+"website": "www.gopalmeena.com",
+"email": "contactgopalmeena.com",
+"status": "R",
+"gstNo": "GST456"
+}
+]
