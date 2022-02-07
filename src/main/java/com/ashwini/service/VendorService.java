@@ -18,10 +18,10 @@ public class VendorService {
 		return vendor.findAll();
 	}
 	
-	public Vendor getSingleVendor(Long id) {
+	public Vendor getSingleVendor(String id) {
 		Optional<Vendor> searchResult = vendor.findById(id);
 		if (!searchResult.isPresent()) {
-			return new Vendor((long) 0, "", "", "", "", "", "", null);
+			return new Vendor((String) "", "", "", "", "", "", "", null);
 		}
 		return searchResult.get();
 	}
@@ -33,12 +33,12 @@ public class VendorService {
 	public Vendor changeVendor(Vendor payload) {
 		Optional<Vendor> myVendor = vendor.findById(payload.getId());
 		if(!myVendor.isPresent()) {
-			return new Vendor((long) 0, "", "", "", "", "", "", null);
+			return new Vendor((String) "", "", "", "", "", "", "", null);
 		}
 		return vendor.save(payload);
 	}
 	
-	public String deleteVendor(Long id) {
+	public String deleteVendor(String id) {
 		vendor.deleteById(id);
 		return "Deleted Successfully";
 	}

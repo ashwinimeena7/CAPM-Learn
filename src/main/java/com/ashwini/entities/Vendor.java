@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -12,10 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Vendor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 	@Column(nullable = false, name = "ID")
-	private Long id;
-//	private String code;
+	private String id;
 	@Column(nullable = false, name = "COMPANY_NAME")
 	private String companyName;
 	@Column(nullable = false, name = "FIRST_NAME")
@@ -39,7 +40,7 @@ public class Vendor {
 		
 	}
 	
-	public Vendor(Long id, String companyName, String firstName, String lastName, String website, String email,
+	public Vendor(String id, String companyName, String firstName, String lastName, String website, String email,
 			String status, String gstNo) {
 		super();
 		this.id = id;
@@ -58,11 +59,11 @@ public class Vendor {
 	 * "contact@ashwinimeena.com"; this.status = "A"; this.gstNo = new Date(); }
 	 */
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

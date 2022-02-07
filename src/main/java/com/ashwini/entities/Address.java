@@ -2,6 +2,7 @@ package com.ashwini.entities;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -10,9 +11,10 @@ import org.springframework.stereotype.Component;
 public class Address {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 	@Column(nullable = false, name = "ID")
-	private Long addressId;
+	private String addressId;
 	@Column(name = "TYPE")
 	private String addressType;
 	@Column(name = "STREET")
@@ -28,7 +30,7 @@ public class Address {
 		
 	}
 
-	public Address(Long addressId, String addressType, String street, String city, String country, String region) {
+	public Address(String addressId, String addressType, String street, String city, String country, String region) {
 		super();
 		this.addressId = addressId;
 		this.addressType = addressType;
@@ -38,11 +40,11 @@ public class Address {
 		this.region = region;
 	}
 
-	public Long getAddressId() {
+	public String getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(Long addressId) {
+	public void setAddressId(String addressId) {
 		this.addressId = addressId;
 	}
 
